@@ -1,0 +1,48 @@
+﻿@model Projekt_w58954.Student
+
+@{
+    ViewData["Title"] = "Details";
+}
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Imię</th>
+            <th scope="col">Nazwisko</th>
+            <th scope="col">Numer dziennika</th>
+            <th scope="col">Data urodzenia</th>
+        </tr>
+    </thead>
+    <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(model => model.Imie)</td>
+                    <td>@Html.DisplayFor(model => model.Nazwisko)</td>
+                    <td>@Html.DisplayFor(model => model.Numer_dziennika)</td>
+                    <td>@Html.DisplayFor(model => model.Rok_urodzin)</td>
+                </tr>
+    </tbody>
+</table>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Przedmiot</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+            foreach (var std in ViewData["przedmiots"] as IQueryable)
+            {
+                <tr>
+                    <th scope="row">@(i = i + 1)</th>
+                    <td>@std</td>
+                </tr>
+                }
+            }
+        </tbody>
+</table>
+<div class="ml-5">
+        <a class="btn btn-light btn-block col-sm-2" asp-action="Edit" asp-route-id="@Model.Id">Edycja danych</a>
+        <a class="btn btn-light btn-block col-sm-2" asp-controller="Student_Przedmiot" asp-action="Create" asp-route-aid="@Model.Id">Przypisz przedmiot</a>
+        <a class="btn btn-light btn-block col-sm-2" asp-action="Index">Powrót</a>
+</div>

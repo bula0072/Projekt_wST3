@@ -1,0 +1,47 @@
+﻿@model Projekt_w58954.Student
+
+@{
+    ViewData["Title"] = "Usuń studenta";
+}
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h3>Jesteś pewien, że chcesz usunąc dane studenta?</h3>
+            </div>
+        </div>
+                <dl class="row justify-content-center">
+                    <dt class="col-sm-6">
+                        Imię
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Imie)
+                    </dd>
+                    <dt class="col-sm-6">
+                        Nazwisko
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Nazwisko)
+                    </dd>
+                    <dt class="col-sm-6">
+                        Numer dziennika
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Numer_dziennika)
+                    </dd>
+                    <dt class="col-sm-6">
+                        Rok urodzenia
+                    </dt>
+                    <dd class="col-sm-6">
+                        @Html.DisplayFor(model => model.Rok_urodzin)
+                    </dd>
+                </dl>
+        <div class="row justify-content-center">
+            <div class="col-sm-4">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Usuń" class="btn btn-light btn-block" />
+                        <a class="btn btn-light btn-block" asp-action="Index">Powrót</a>
+                </form>
+            </div>
+        </div>  
+    </div>

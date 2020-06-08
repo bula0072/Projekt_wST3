@@ -1,0 +1,35 @@
+﻿@model Projekt_w58954.Student_Przedmiot
+
+@{
+    ViewData["Title"] = "Wypisz studenta z przedmiotu";
+}
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h3>Jesteś pewien, że chcesz wypisać studenta z przedmiotu?</h3>
+        </div>
+    </div>
+    <dl class="row justify-content-center">
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Student)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.Student.Imie) @Html.DisplayFor(model => model.Student.Nazwisko)
+        </dd>
+        <dt class="col-sm-6">
+            @Html.DisplayNameFor(model => model.Przedmiot)
+        </dt>
+        <dd class="col-sm-6">
+            @Html.DisplayFor(model => model.Przedmiot.Nazwa_przedmiotu)
+        </dd>
+    </dl>
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Wypisz" class="btn btn-light btn-block" />
+                <a class="btn btn-light btn-block" asp-action="Index">Powrót</a>
+            </form>
+        </div>
+    </div>
+</div>

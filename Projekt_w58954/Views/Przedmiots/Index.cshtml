@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Projekt_w58954.Przedmiot>
+
+@{
+    ViewData["Title"] = "Dodaj przedmiot";
+}
+
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nazwa przedmiotu</th>
+            <th scope="col">Ilość godzin</th>
+            <th scope="col">Forma przedmiotu</th>
+            <th scope="col">Prowadzący</th>
+            <th scope="col">Działanie</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+            int i = 0;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@(i = i + 1)</th>
+                    <td>@Html.DisplayFor(modelItem => item.Nazwa_przedmiotu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ilosc_godzin)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Forma_przedmiotu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Prowadzacy)</td>
+                    <td>
+                        <a class="btn btn-light" asp-action="Edit" asp-route-id="@item.Id">Edycja</a>
+                        <a class="btn btn-light" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<a class="btn btn-light ml-5" asp-action="Create">Dodaj przedmiot</a>
